@@ -26,7 +26,10 @@ module.exports = {
         url = results[0].url;
         title = results[0].title;
       } else {
-        const info = await play.video_info(query);
+        const videoId = new URL(query).searchParams.get('v');
+        const cleanUrl = videoId ? `https://www.youtube.com/watch?v=${videoId}` : query;
+        const info = await play.video_info(cleanUrl);
+        url = cleanUrl;
         title = info.video_details.title;
       }
     } catch (error) {
