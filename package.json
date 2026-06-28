@@ -6,7 +6,8 @@
   "type": "commonjs",
   "scripts": {
     "start": "node src/index.js",
-    "deploy": "node src/deployCommands.js"
+    "deploy": "node src/deployCommands.js",
+    "clear": "node src/clearCommands.js"
   },
   "dependencies": {
     "@discordjs/voice": "^0.17.0",
