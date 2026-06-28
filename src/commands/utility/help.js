@@ -6,6 +6,7 @@ module.exports = {
   async execute(interaction) {
     const categories = {};
     for (const command of interaction.client.commands.values()) {
+      if (command.ownerOnly) continue;
       const category = command.category ?? 'Autre';
       categories[category] = categories[category] ?? [];
       categories[category].push(`\`/${command.data.name}\` — ${command.data.description}`);
