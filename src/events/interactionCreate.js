@@ -1,8 +1,15 @@
 const { Collection, MessageFlags } = require('discord.js');
+const ticketHandler = require('../handlers/ticketHandler.js');
 
 module.exports = {
   name: 'interactionCreate',
   async execute(interaction, client) {
+    if (interaction.isStringSelectMenu() || interaction.isButton()) {
+      return ticketHandler.handleInteraction(interaction).catch((error) => {
+        console.error('Erreur dans le gestionnaire de tickets:', error);
+      });
+    }
+
     if (!interaction.isChatInputCommand()) return;
 
     const command = client.commands.get(interaction.commandName);
