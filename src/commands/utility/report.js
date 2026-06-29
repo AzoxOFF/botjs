@@ -1,6 +1,6 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 
-const SUPPORT_CHANNEL_ID = '1520917221533024347';
+const SUPPORT_CHANNEL_ID = '1521065920783716498';
 
 module.exports = {
   category: 'Utilitaire',
