@@ -3,6 +3,14 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, GatewayIntentBits, Partials } = require('discord.js');
 
+process.on('unhandledRejection', (error) => {
+  console.error('Promesse rejetée non gérée:', error);
+});
+
+process.on('uncaughtException', (error) => {
+  console.error('Exception non interceptée:', error);
+});
+
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
