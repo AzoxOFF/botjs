@@ -11,19 +11,12 @@ process.on('uncaughtException', (error) => {
   console.error('Exception non interceptée:', error);
 });
 
-if (process.env.YOUTUBE_COOKIE) {
-  const play = require('play-dl');
-  play.setToken({ youtube: { cookie: process.env.YOUTUBE_COOKIE } });
-  console.log('✅ Cookie YouTube chargé pour play-dl.');
-}
-
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
     GatewayIntentBits.GuildMembers,
     GatewayIntentBits.GuildMessages,
     GatewayIntentBits.GuildMessageReactions,
-    GatewayIntentBits.GuildVoiceStates,
     GatewayIntentBits.MessageContent,
   ],
   partials: [Partials.Message, Partials.Channel, Partials.Reaction],
